@@ -1,4 +1,4 @@
-strs = [""];
+strs = ["eat", "tea", "tan", "ate", "nat", "bat"];
 out = [];
 let map = new Map();
 
