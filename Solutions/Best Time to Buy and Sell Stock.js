@@ -1,8 +1,20 @@
 let prices = [7,1,5,3,6,4]
 let length = prices.length	
-let MaxiumProfit = 0
-for(let i = 0; i < length; i++){
-	for(let y = 0; y < length; y++){
+let left = 0;
+let right = 1
+let maxProfit = 0
 
+while(right < length){
+	if(prices[left] < prices[right]){
+		let profit = Math.abs(prices[left] - prices[right])
+		if(profit > maxProfit){
+			maxProfit = profit
+		}
+	}else{
+		left = right
 	}
+	right += 1
 }
+
+
+console.log(maxProfit)
