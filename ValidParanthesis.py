@@ -1,4 +1,4 @@
-s = "(]"
+s = "(){}[]"
 
 d = {
 	"{": "}",
@@ -9,18 +9,21 @@ d = {
 stack = []
 for i in range(len(s)):
   if s[i] == "[":
-    stack.append(d[s[i]])
-  if s[i] == "{":
-    stack.append(d[s[i]])
-  if s[i] == "(":
-    stack.append(d[s[i]]) 
-  
-for x in range(0,len(s),2):
-  elm = stack.pop()
-  if d[s[x]] == elm:
-    pass
+    stack.append("[")
+  elif s[i] == "{":
+    stack.append("{")
+  elif s[i] == "(":
+    stack.append("(")
   else: 
-    print("Invalid")
-    break 
+    elm = stack.pop()
+    if s[i] == d[elm]:
+      pass
+    else:
+      print("Invalid") 
   
-print("Valid")  
+if not stack:
+  print("Valid")
+else:
+  print("Invalid")
+      
+      
